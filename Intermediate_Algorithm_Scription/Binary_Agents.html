@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Binary Agents</title>
+</head>
+<body>
+  <script>
+  /*Binary Agents
+  Return an English translated sentence of the passed binary string.
+  The binary string will be space separated.*/
+
+  function binaryAgent(str) {
+    //split input with space into Array
+    //modify the array using map method
+    return str.split(' ').map((item) => {
+      //parseInt() function to convert input string into number and translate to decimal
+      return String.fromCharCode(parseInt(item,2));      
+    //join array back to string
+    }).join('');
+  }
+
+  // binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+  console.log('binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"): ', binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"));
+
+  </script>
+</body>
+</html>
