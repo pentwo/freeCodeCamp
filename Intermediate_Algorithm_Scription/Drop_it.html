@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Drop it</title>
+</head>
+<body>
+  <script>
+  /*Drop it
+
+  Drop the elements of an array (first argument), starting from the front, until the predicate (second argument) returns true.
+
+  The second argument, func, is a function you'll use to test the first elements of the array to decide if you should drop it or not.
+
+  Return the rest of the array, otherwise return an empty array.*/
+
+  
+  function dropElements(arr, func) {
+    // Drop them elements.
+      let dropArray = [];
+      return arr.filter(item => {
+        for (let i =0; i < dropArray.length; i++) {
+          if (item === dropArray[i]){
+            return true;
+          }
+        }
+        if (!func(item)){
+          dropArray.push(item);  
+        }
+        return (func(item));
+      });
+
+    
+  }
+
+  // dropElements([1, 2, 3], function(n) {return n < 3; });
+  // console.log('dropElements([1, 2, 3], function(n) {return n < 3; }): ', dropElements([1, 2, 3], function(n) {return n < 3; }));
+
+  console.log(dropElements([1, 2, 3, 4], function(n) {return n >= 3;}));
+  console.log(dropElements([0, 1, 0, 1], function(n) {return n === 1;}));
+  console.log(dropElements([1, 2, 3], function(n) {return n > 0;}));
+  console.log(dropElements([1, 2, 3, 4], function(n) {return n > 5;}));
+  console.log(dropElements([1, 2, 3, 7, 4], function(n) {return n > 3;}));
+  console.log(dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;}));
+
+
+  </script>
+</body>
+</html>

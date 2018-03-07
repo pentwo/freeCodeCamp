@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* Convert HTML Entities
+Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.*/
+
+    function convertHTML(str) {
+      // &colon;&rpar;
+      const regex = new RegExp(/[&,<,>,",']/, 'i');
+      let arr = str.split('');
+      
+      arr = arr.map(function(item) {
+        if(regex.test(item)) {
+          switch (item) {
+            case '&':
+            return '&amp;';
+
+            case '>':
+            return '&gt;';
+
+            case '<':
+            return '&lt;';
+
+            case '\"':
+            return '&quot;';
+
+            case '\'':
+            return '&apos;';
+          }
+        }
+        return item;
+      });
+      
+
+      return arr.join('');
+    }
+
+    
+    console.log('convertHTML("Dolce & Gabbana"): ', convertHTML("Dolce & Gabbana"));
+    convertHTML("Dolce & Gabbana");
+
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Spinal Tap Case</title>
+</head>
+<body>
+  <script>
+/*Spinal Tap Case
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.*/
+
+    function spinalCase1(str) {
+      // "It's such a fine line between stupid, and clever."
+      // --David St. Hubbins
+
+      if (!(/[_]/g).test(str)) {
+        let arr = str.split('');
+
+        arr = arr.map(function (item, i) {
+          if ((/[A-Z]/g).test(item) && arr[i-1] !== ' ' &&  i !== 0 ) {
+            return ' ' + item;
+          }
+          return item;
+        });
+
+        return arr.join('').replace(/[\s_]/g, '-').toLowerCase();
+      }
+      return str.toLowerCase().replace(/[\s_]/g, '-');      
+    }
+
+    function spinalCase2(str) {
+      let arr = str.split('');
+      
+      arr = arr.map(function (item, i){
+        if ((/[A-Z]/g).test(item) && arr[i-1] !== ' ' && arr[i-1] !== '_' &&  i !== 0 ) {
+          return '-' + item;
+        } else if ((/\s|_/).test(item)) {          
+          return '-';
+        }
+        return item;
+      });
+      return arr.join('').toLowerCase();
+    }
+    
+    function spinalCase (str) {
+      return str.split(/\s|_|(?=[A-Z])/).join('-').toLowerCase();
+    }
+
+  
+  
+    console.log('spinalCase(\'This Is Spinal Tap\'): ', spinalCase('This Is Spinal Tap'));
+    // spinalCase('This Is Spinal Tap');
+
+    console.log('spinalCase(\'thisIsSpinalTap\'): ', spinalCase('thisIsSpinalTap'));
+    // spinalCase('thisIsSpinalTap');
+
+    console.log('spinalCase(\'AllThe-small Things\'): ', spinalCase('AllThe-small Things'));
+    // spinalCase('AllThe-small Things');
+
+    console.log('spinalCase(\"The_Andy_Griffith_Show\"): ', spinalCase("The_Andy_Griffith_Show"));
+    // spinalCase("The_Andy_Griffith_Show");
+
+  </script>
+  
+</body>
+</html>

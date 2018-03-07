@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript Recursion Exercise</title>
+</head>
+<body>
+  <script>
+  /*Source https://www.w3resource.com/javascript-exercises/javascript-recursion-functions-exercises.php */
+  /*1. Write a JavaScript program to calculate the factorial of a number.
+  In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n. For example, 5! = 5 x 4 x 3 x 2 x 1 = 120*/
+  
+  function factorialCal (arg) {
+    if (arg <= 0) {
+      return 1;
+    } else {
+      return arg * factorialCal(arg-1);
+    }
+  }
+  // factorialCal(5);
+  console.log('factorialCal(5): ', factorialCal(5));
+  console.log('factorialCal(10): ', factorialCal(10));
+
+  /*2. Write a JavaScript program to find the greatest common divisor (gcd) of two positive numbers.*/
+  
+  // function gcd (arg1, arg2) {
+  //   if () {
+  //     return 1;
+  //   } else {
+  //     return ;
+  //   }
+    
+  // }
+  // gcd(104,24);
+  // console.log('gcd(54,24): ', gcd(54,24));
+
+  /*3. Write a JavaScript program to get the integers in range (x, y).
+  Example : range(2, 9)
+  Expected Output : [3, 4, 5, 6, 7, 8]*/
+  function getRange(x, y) {
+    let rangeArr=[];
+
+    return (function rec (x, y) {
+      if (x == y) {
+        return rangeArr;
+      } else {      
+        rangeArr.push(x);
+        return rec(x+1, y);
+      }
+    })(x+1,y);
+
+  }
+
+  // getRange(2,9);
+  console.log('getRange(2,9): ', getRange(2,9));
+  console.log('getRange(2,9): ', getRange(15,23));
+
+  /*4. Write a JavaScript program to compute the sum of an array of integers.
+  Example : var array = [1, 2, 3, 4, 5, 6]
+  Expected Output : 21*/
+  function sumArray (arr) {
+    let sum = 0;
+    let i = 0;
+    function calSum (arr) {
+      if (i == arr.length) {
+        return arr[i];
+      } else {
+        sum += arr[i];
+        
+      }
+    }
+
+    return sum;
+  }
+
+
+  // sumArray([1,2,3,4]);
+  console.log('sumArray([1,2,3,4]): ', sumArray([1,2,3,4]));
+
+  /*5. Write a JavaScript program to compute the exponent of a number.
+  Note : The exponent of a number says how many times the base number is used as a factor.
+  82 = 8 x 8 = 64. Here 8 is the base and 2 is the exponent.*/
+  
+
+  
+
+  /*6. Write a JavaScript program to get the first n Fibonacci numbers.
+  Note : The Fibonacci Sequence is the series of numbers: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, . . . Each subsequent number is the sum of the previous two.*/
+  
+
+  /*7. Write a JavaScript program to check whether a number is even or not.*/
+  
+
+  /*8. Write a JavaScript program for binary search.
+  Sample array : [0,1,2,3,4,5,6]
+  console.log(l.br_search(5)) will return '5'*/
+  
+
+  /*9. Write a merge sort program in JavaScript.
+  Sample array : [34,7,23,32,5,62]
+  Sample output : [5, 7, 23, 32, 34, 62]
+  */
+  
+  </script>
+</body>
+</html>

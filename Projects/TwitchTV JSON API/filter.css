@@ -1,0 +1,16 @@
+.filter {
+  filter: grayscale(1) blur(5px);
+  -webkit-filter: grayscale(1) blur(5px); 
+}
+
+.greyscale{
+filter: grayscale(1);
+  -webkit-filter: grayscale(1);    
+}
+
+.blur{
+filter: blur(5px);
+ -webkit-filter: blur(5px);
+ 
+}
+
