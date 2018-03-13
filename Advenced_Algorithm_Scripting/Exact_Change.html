@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Exact Change</title>
+</head>
+<body>
+  <script>
+  /*Exact Change
+  Design a cash register drawer function checkCashRegister() that accepts purchase price as the first argument (price), payment as the second argument (cash), and cash-in-drawer (cid) as the third argument.
+
+  cid is a 2D array listing available currency.
+
+  Return the string "Insufficient Funds" if cash-in-drawer is less than the change due. Return the string "Closed" if cash-in-drawer is equal to the change due.
+
+  Otherwise, return change in coin and bills, sorted in highest to lowest order.*/
+
+  var exchangeAmount = [
+    { name: 'ONE HUNDRED', val: 100.00},
+    { name: 'TWENTY', val: 20.00},
+    { name: 'TEN', val: 10.00},
+    { name: 'FIVE', val: 5.00},
+    { name: 'ONE', val: 1.00},
+    { name: 'QUARTER', val: 0.25},
+    { name: 'DIME', val: 0.10},
+    { name: 'NICKEL', val: 0.05},
+    { name: 'PENNY', val: 0.01}
+  ];
+
+    
+    
+  function checkCashRegister(price, cash, cid) {
+    // Here is your change, ma'am.
+    //deal with calculate numbers
+    function adjNum(num) {
+      return Number(Number.parseFloat(num, 10).toFixed(2));
+    }
+    
+    //change need to be given
+    let change = adjNum(cash - price);
+    
+    //create an object including cash in cashier
+    let cashAmount = cid.reduce((pre, cur) => {
+      pre.total += cur[1];
+      pre[cur[0]] = cur[1];
+      return pre;
+    }, {total: 0});
+    
+    cashAmount.total = adjNum(cashAmount.total);
+    let changeAmount = [];
+
+    //deal with not enough amount cash
+    if (change > cashAmount.total) {
+      return 'Insufficient Funds';
+    }
+    
+    //deal with exact amount of cash
+    if (change === cashAmount.total) {
+      return 'Closed';
+    }
+
+    //looping over cashier obj to calculate how to give a change
+    for (let i = 0; i < exchangeAmount.length; i++) {
+      if (change >= exchangeAmount[i].val) {
+        let coins = Number.parseInt(change / exchangeAmount[i].val); //how many coins to give back
+        if (exchangeAmount[i].val*coins > cashAmount[exchangeAmount[i].name]) {
+          //if coins not enought
+          coins = Number.parseInt(cashAmount[exchangeAmount[i].name] / exchangeAmount[i].val);
+          if (coins === 0) {
+            return 'Insufficient Funds';
+          }
+        }        
+        
+        const leftChange = adjNum(change % exchangeAmount[i].val);
+        // console.log('leftChange: ', leftChange);
+        change = adjNum(change - (exchangeAmount[i].val*coins));
+        changeAmount.push([exchangeAmount[i].name, exchangeAmount[i].val*coins]);
+        
+        if (leftChange === 0) {
+            break;
+        }
+        // console.log('change: ', change);
+        // console.log('Bill, coins: ',exchangeAmount[i].name, exchangeAmount[i].val, coins);
+        // console.log('----------');
+      }
+    }
+    // console.log('change: ', change);
+    // console.log('changeAmount: ', changeAmount);
+    return changeAmount;
+  }
+
+  // Example cash-in-drawer array:
+  // [["PENNY", 1.01],
+  // ["NICKEL", 2.05],
+  // ["DIME", 3.10],
+  // ["QUARTER", 4.25],
+  // ["ONE", 90.00],
+  // ["FIVE", 55.00],
+  // ["TEN", 20.00],
+  // ["TWENTY", 60.00],
+  // ["ONE HUNDRED", 100.00]]
+
+  // checkCashRegister(15.30, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
+  console.log(checkCashRegister(15.30, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]));
+
+  // checkCashRegister(3.26, 100.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
+  console.log(checkCashRegister(3.26, 100.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]));
+
+  console.log(checkCashRegister(19.50, 20.00, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1.00], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]));
+
+  </script>
+</body>
+</html>

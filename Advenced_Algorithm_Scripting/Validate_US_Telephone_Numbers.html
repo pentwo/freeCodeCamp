@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Validate US Telephone Numbers</title>
+</head>
+<body>
+  <script>
+    /*Validate US Telephone Numbers
+    Return true if the passed string is a valid US phone number.
+
+    The user may fill out the form field any way they choose as long as it is a valid US number. The following are examples of valid formats for US numbers (refer to the tests below for other variants):
+
+        555-555-5555
+        /([0-9]{3})-([0-9]{3})-([0-9]{4})/g
+        (555)555-5555
+        (\([0-9]{3}\))([0-9]{3})-([0-9]{4})
+        (555) 555-5555
+        (\([0-9]{3}\)) ([0-9]{3})-([0-9]{4})
+        555 555 5555
+        ([0-9]{3}) ([0-9]{3}) ([0-9]{4})
+        5555555555
+        ([0-9]{10})
+        1 555 555 5555
+        1 ([0-9]{3}) ([0-9]{3}) ([0-9]{4})
+        1 (555) 555-5555
+        1 (\([0-9]{3}\)) ([0-9]{3})-([0-9]{4})
+    
+        /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/
+    For this challenge you will be presented with a string such as 800-692-7753 or 8oo-six427676;laskdjf. Your job is to validate or reject the US phone number based on any combination of the formats provided above. The area code is required. If the country code is provided, you must confirm that the country code is 1. Return true if the string is a valid US phone number; otherwise return false.*/
+
+    function telephoneCheck(str) {
+      // Good luck!
+      const regexp = /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/g;
+      return regexp.test(str)
+
+      // if (normalNumber.length === 11) {
+        //   return normalNumber[0] === '1' ? true : false;
+        // }
+      // if (normalNumber.length === 10) {
+        
+      //   return true;
+      // } else if (normalNumber.length === 11 && normalNumber[0] === '1') {
+      //   return true;
+      // } else {
+      //   return false;
+      // }
+    }
+
+    // telephoneCheck("2-555-555-5555");
+    console.log('telephoneCheck("1-555-555-5555"): ', telephoneCheck("1 555-555-5555"));
+    // telephoneCheck("(6505552368)")
+    console.log('telephoneCheck("(6505552368)"): ', telephoneCheck("(6505552368)"));
+    // telephoneCheck("-1 (757) 622-7382")
+    console.log('telephoneCheck("-1 (757) 622-7382"): ', telephoneCheck("-1 (757) 622-7382"));
+    // telephoneCheck("555)-555-5555")
+    console.log('telephoneCheck("555)-555-5555"): ', telephoneCheck("555)-555-5555"));
+    // telephoneCheck("(555-555-5555")
+    console.log('telephoneCheck("(555-555-5555"): ', telephoneCheck("(555-555-5555"));
+    // telephoneCheck("(555)5(55?)-5555")
+    console.log('telephoneCheck("(555)5(55?)-5555"): ', telephoneCheck("(555)5(55?)-5555"));
+    
+    
+    
+
+  </script>
+</body>
+</html>
