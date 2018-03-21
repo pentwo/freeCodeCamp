@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Inventory Update</title>
+</head>
+
+<body>
+  <h1>Inventory Update</h1>
+  <script>
+    /*Inventory Update
+    Compare and update the inventory stored in a 2D array against a second
+    2D array of a fresh delivery.
+    Update the current existing inventory item quantities (in arr1). If an item cannot be found, add the new item and quantity into the inventory array. The returned inventory array should be in alphabetical order by item.*/
+    function updateInventory(arr1, arr2) {
+      // All inventory must be accounted for or you're fired!
+
+      //Check if this item in this array
+      function itemExist(newItem, arr) {
+        for (const index in arr) {
+          if (newItem === arr[index][1]) {
+            return index;
+          }
+        }
+        return false;
+      }
+
+      for (const [newQty, newItem] of arr2) {
+        //if exist, update the value
+        if (itemExist(newItem, arr1)) {
+          arr1[itemExist(newItem, arr1)][0] += newQty;
+        } else {
+          //if not in array, push a new item
+          arr1.push([newQty, newItem]);
+        }
+      }
+
+      return arr1.sort((a, b) => a[1] > b[1] ? 1 : -1);
+    }
+
+    // Example inventory lists
+    var curInv = [
+      [21, "Bowling Ball"],
+      [2, "Dirty Sock"],
+      [1, "Hair Pin"],
+      [5, "Microphone"]
+    ];
+
+    var newInv = [
+      [2, "Hair Pin"],
+      [3, "Half-Eaten Apple"],
+      [67, "Bowling Ball"],
+      [7, "Toothpaste"]
+    ];
+
+    // updateInventory(curInv, newInv);
+    console.log('updateInventory(curInv, newInv): ', updateInventory(curInv, newInv));
+  </script>
+
+
+</body>
+
+</html>

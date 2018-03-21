@@ -1,0 +1,28 @@
+body {
+  font-family: 'Patrick Hand';
+}
+.numbers {
+  background: lightgrey;
+}
+.symbols {
+  background: lightyellow;
+}
+.clear {
+  background: indianred;
+}
+.backspace {
+  background: indianred;
+}
+.process {
+  background: lightblue;
+  display: flex;
+  align-items: center; /* Vertical center alignment */
+  justify-content: center; /* Horizontal center alignment */
+  line-height: 20px;
+}
+.point {
+  background: aqua;
+}
+.btn:active {
+  background: yellow;
+}

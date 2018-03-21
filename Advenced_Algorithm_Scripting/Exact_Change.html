@@ -20,41 +20,41 @@
     //Otherwise, return change in coin and bills, sorted in highest to lowest order.
 
     var exchangeAmount = [{
-        name: 'ONE HUNDRED',
-        val: 100.00
-      },
-      {
-        name: 'TWENTY',
-        val: 20.00
-      },
-      {
-        name: 'TEN',
-        val: 10.00
-      },
-      {
-        name: 'FIVE',
-        val: 5.00
-      },
-      {
-        name: 'ONE',
-        val: 1.00
-      },
-      {
-        name: 'QUARTER',
-        val: 0.25
-      },
-      {
-        name: 'DIME',
-        val: 0.10
-      },
-      {
-        name: 'NICKEL',
-        val: 0.05
-      },
-      {
-        name: 'PENNY',
-        val: 0.01
-      }
+      name: 'ONE HUNDRED',
+      val: 100.00
+    },
+    {
+      name: 'TWENTY',
+      val: 20.00
+    },
+    {
+      name: 'TEN',
+      val: 10.00
+    },
+    {
+      name: 'FIVE',
+      val: 5.00
+    },
+    {
+      name: 'ONE',
+      val: 1.00
+    },
+    {
+      name: 'QUARTER',
+      val: 0.25
+    },
+    {
+      name: 'DIME',
+      val: 0.10
+    },
+    {
+      name: 'NICKEL',
+      val: 0.05
+    },
+    {
+      name: 'PENNY',
+      val: 0.01
+    }
     ];
 
 
@@ -75,8 +75,8 @@
         pre[cur[0]] = cur[1];
         return pre;
       }, {
-        total: 0
-      });
+          total: 0
+        });
 
       cashAmount.total = adjNum(cashAmount.total);
       let changeAmount = [];
