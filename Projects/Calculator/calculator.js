@@ -47,7 +47,7 @@ function op(pre, cur, sym) {
       return BigNumber(pre).div(cur);
     // return pre / cur;
     default:
-      return pre;
+      break;
   }
 }
 

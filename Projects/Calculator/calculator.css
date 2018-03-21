@@ -23,6 +23,6 @@ body {
 .point {
   background: aqua;
 }
-.btn:active {
+/* .btn:active {
   background: yellow;
-}
+} */
