@@ -11,23 +11,39 @@
 <body>
   <h1>Pomodoro Clock</h1>
   <div class="container">
-    <div>Break Time:
-      <button class="time-option">+</button>
+    <div class="bt">
+      <h4>Break Time</h4>
+      <button class="time-option" id="br-time-add">+</button>
       <span class="break-time"></span>
-      <button class="time-option">-</button>
+      <button class="time-option" id="br-time-minus">-</button>
     </div>
-    <div>Work Time:
-      <button class="time-option">+</button>
+    <div class="wt">
+      <h4>Work Time</h4>
+      <button class="time-option" id="wk-time-add">+</button>
       <span class="work-time"></span>
-      <button class="time-option">-</button>
+      <button class="time-option" id="wk-time-minus">-</button>
     </div>
-    <div>Time Duration:
+    <div class="td">
+      <h4>
+        Time Duration:
+      </h4>
+      <p class="session"></p>
       <time class="clock-time"></time>
     </div>
-    <button class="start">Start / Pause</button>
+    <div class="meter">
+      <span class="bar" style="width: 0%">
+        <span></span>
+      </span>
+    </div>
+    <div class="btns">
+      <button class="start" onclick="startTimer()">Start / Pause</button>
+      <button class="reset" onclick="resetTimer()">Reset</button>
 
+    </div>
   </div>
 </body>
 <script src="clock.js"></script>
+<link rel="stylesheet" href="style.css">
+
 
 </html>
